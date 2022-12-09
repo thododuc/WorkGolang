@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	n := 5
+	//n := 5
 	arr := [5]int{1, 2, 3, -2, 5}
 	var sum, max int
 	max = arr[0]
-	for i := 0; i < n; i++ {
+	for i := range arr {
 		sum += arr[i]
 		if max < sum {
 			max = sum
