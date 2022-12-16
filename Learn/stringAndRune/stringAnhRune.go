@@ -15,4 +15,8 @@ func main() {
 		fmt.Printf("%#U starts at %d\n", runeValue, i)
 		w = width
 	}
+	for i := 0; i < len(s); i++ {
+		fmt.Printf("%x ", s[i])
+	}
+	fmt.Println()
 }
