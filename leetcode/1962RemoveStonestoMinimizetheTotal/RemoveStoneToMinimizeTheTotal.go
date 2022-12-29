@@ -7,7 +7,6 @@ import (
 
 func minStoneSum(piles []int, k int) int {
 	sort.Sort(sort.Reverse(sort.IntSlice(piles)))
-	fmt.Println(piles)
 	for i := 0; i < k; i++ {
 		piles[0] -= piles[0] / 2
 		heapify(piles, len(piles), 0)
