@@ -11,6 +11,7 @@ func wordPattern(pattern string, s string) bool {
 	s1 := strings.Fields(s)
 
 	m := make(map[rune]string)
+	mapS := make(map[string]bool)
 
 	if len(pattern) != len(s1) {
 		return false
@@ -18,12 +19,11 @@ func wordPattern(pattern string, s string) bool {
 
 	for k, v := range pattern {
 		if m[v] == "" {
-			for _, mv := range m {
-				if mv == s1[k] {
-					return false
-				}
+			if mapS[s1[k]] {
+				return false
 			}
 			m[v] = s1[k]
+			mapS[s1[k]] = true
 		} else {
 			if m[v] != s1[k] {
 				return false
@@ -34,7 +34,7 @@ func wordPattern(pattern string, s string) bool {
 }
 
 func main() {
-	pattern := "aaaaa"
-	s := "aa aa aa aa"
+	pattern := "abb"
+	s := "aa bb bb"
 	fmt.Println(wordPattern(pattern, s))
 }
