@@ -1,21 +1,21 @@
-package main
+package main //https://leetcode.com/problems/fizz-buzz/description/
 
 import (
 	"fmt"
 	"strconv"
 )
 
-func fizzBuzz(n int) []string {
-	result := []string{}
+func fizzBuzz(n int) []string { //khai bao chinh xac kich thuoc cua slice se giup tiet kiem bo nho
+	result := make([]string, n)
 	for i := 0; i < n; i++ {
 		if (i+1)%15 == 0 {
-			result = append(result, "FizzBuzz")
+			result[i] = "FizzBuzz"
 		} else if (i+1)%5 == 0 {
-			result = append(result, "Buzz")
+			result[i] = "Buzz"
 		} else if (i+1)%3 == 0 {
-			result = append(result, "Fizz")
+			result[i] = "Fizz"
 		} else {
-			result = append(result, strconv.Itoa(i+1))
+			result[i] = strconv.Itoa(i + 1)
 		}
 	}
 	return result
