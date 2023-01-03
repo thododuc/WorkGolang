@@ -9,7 +9,7 @@ func pivotIndex(nums []int) int {
 	}
 	sumLeft := 0
 	for k, v := range nums {
-		if sumLeft*2 == sum-nums[k] {
+		if sumLeft*2 == sum-v {
 			return k
 		} else {
 			sumLeft += v
