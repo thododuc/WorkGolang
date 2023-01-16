@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func fib(n int) int {
-	if n < 2 {
+	if n <= 1 {
 		return n
 	}
 	a, b := 0, 1
