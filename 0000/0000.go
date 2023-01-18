@@ -1,40 +1,21 @@
-package main
+package main //https://leetcode.com/problems/flood-fill
 
-import (
-	"fmt"
-)
+import "fmt"
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func preorderTraversal(root *TreeNode) []int {
-	if root == nil {
-		return nil
+func twoSum(nums []int, target int) []int {
+	m := make(map[int]int)
+	for k, v := range nums {
+		if m[v] != 0 {
+			return []int{m[v], k}
+		} else {
+			m[target-v] = k
+		}
 	}
-
-	left := preorderTraversal(root.Left)
-	right := preorderTraversal(root.Right)
-
-	output := make([]int, 0)
-
-	output = append(output, root.Val)
-	output = append(output, left...)
-	output = append(output, right...)
-	return output
+	return []int{}
 }
 
 func main() {
-	root := TreeNode{Val: 1}
-	root.Left = &TreeNode{Val: 2}
-	root.Left.Left = &TreeNode{Val: 4}
-	root.Right = &TreeNode{Val: 3}
-	root.Right.Left = &TreeNode{Val: 5}
-	root.Right.Right = &TreeNode{Val: 6}
-
-	output := preorderTraversal(&root)
-	fmt.Println(output)
-
+	nums := []int{2, 7, 11, 15}
+	target := 9
+	fmt.Println(twoSum(nums, target))
 }
