@@ -3,10 +3,17 @@ package main //https://leetcode.com/problems/kth-missing-positive-number
 import "fmt"
 
 func findKthPositive(arr []int, k int) int {
-	count, search := 0, 0
 
-	for i := 0; i < len(arr);{
-		search++
+
+	if arr[0] > k {
+		return k
+	}
+
+	if arr[len(arr)-1 ] - len(arr) < k {
+		return k + len(arr)
+	}
+	count, search := arr[0] - 1, arr[0] + 1
+	for i := 1; i < len(arr);{
 		if search == arr[i] {
 			i++
 		} else {
@@ -15,12 +22,13 @@ func findKthPositive(arr []int, k int) int {
 				return search
 			}
 		}
+		search++
 	}
-	return search + k - count
+	return 0
 }
 
 func main() {
-	arr := []int{2,3,4,7,11}
-	 k := 5
+	arr := []int{1,2}
+	 k := 1
 	fmt.Println(findKthPositive(arr, k))
 }
