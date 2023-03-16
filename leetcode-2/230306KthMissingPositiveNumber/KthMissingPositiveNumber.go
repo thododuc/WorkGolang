@@ -3,8 +3,6 @@ package main //https://leetcode.com/problems/kth-missing-positive-number
 import "fmt"
 
 func findKthPositive(arr []int, k int) int {
-
-
 	if arr[0] > k {
 		return k
 	}
