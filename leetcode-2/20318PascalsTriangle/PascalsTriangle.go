@@ -19,6 +19,6 @@ func generate(numRows int) [][]int {
 }
 
 func main() {
-	numRows := 5
+	numRows := 10
 	fmt.Println(generate(numRows))
 }
